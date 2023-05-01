@@ -66,13 +66,16 @@ void setup(){
 }
 
 void loop(){
+  
   imu();
   brujula();
   barometro();
   ubicacion();
   
-  if (millis() - timer2 > 1000 && banderaMovimiento == false) //Comprobar cambios de altura cada 1s
+  if (millis() - timer2 > 1000 && banderaMovimiento == false) {//Comprobar cambios de altura cada 1s
+    timer2 = millis();
     elevationCheck();
+  }
 
   ruta();
   if (banderaMovimiento == true)
